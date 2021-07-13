@@ -41,3 +41,7 @@ rm -rf node_modules/ package-lock.json
 ```bash
 docker-compose up
 ```
+
+## Плагин Documentation
+
+FYI: После первого запуска приложения устанавливаются зависимости для плагина Swagger API Docs, но в админке все равно нужно нажать Download :-/
