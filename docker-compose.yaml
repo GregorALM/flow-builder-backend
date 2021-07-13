@@ -1,0 +1,29 @@
+version: "3"
+
+volumes:
+  database:
+
+services:
+  strapi:
+    container_name: strapi
+    image: strapi/strapi
+    env_file: .env
+    ports:
+      - 1337:1337
+    volumes:
+      - .:/srv/app
+    depends_on:
+      - db
+
+  db:
+    container_name: mongo
+    image: mongo
+    env_file: .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASSWORD}
+    ports:
+      - ${DATABASE_PORT}:${DATABASE_PORT}
+    volumes:
+      - database:/data/db
+    restart: always
