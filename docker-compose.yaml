@@ -9,7 +9,7 @@ services:
     image: strapi/strapi
     env_file: .env
     ports:
-      - 1337:1337
+      - ${PORT}:${PORT}
     volumes:
       - .:/srv/app
     depends_on:
