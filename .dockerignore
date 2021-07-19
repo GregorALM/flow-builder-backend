@@ -1,0 +1,6 @@
+dockerfiles
+.gitlab-ci.yml
+docker-compose.yaml
+.git
+.env*
+docker-compose*
