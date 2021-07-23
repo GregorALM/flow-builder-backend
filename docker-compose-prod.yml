@@ -7,7 +7,7 @@ networks:
 
 services:
   nginx:
-    image: 602044514283.dkr.ecr.eu-central-1.amazonaws.com/jc_site/nginx:latest
+    image: nginx:latest
     restart: always
     networks:
       - backend
@@ -20,22 +20,22 @@ services:
       - 80:80
       - 443:443
 
-  certbot:
-    image: certbot/certbot
-    depends_on:
-      - nginx
-    networks:
-      - backend
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt
-      - /tmp/certbot:/var/www/certbot
+#  certbot:
+#    image: certbot/certbot
+#    depends_on:
+#      - nginx
+#    networks:
+#      - backend
+#    volumes:
+#      - /etc/letsencrypt:/etc/letsencrypt
+#      - /tmp/certbot:/var/www/certbot
 
   strapi:
     container_name: strapi
     networks:
       - backend
     dns: 8.8.8.8
-    image: 602044514283.dkr.ecr.eu-central-1.amazonaws.com/jc_site/strapi:latest
+    image: strapi:latest
     env_file: .docker.env
     ports:
       - 1337:1337
