@@ -38,7 +38,7 @@ services:
     image: strapi:latest
     env_file: .docker.env
     ports:
-      - 1337:1338
+      - 1337:1337
     depends_on:
       - db
 
